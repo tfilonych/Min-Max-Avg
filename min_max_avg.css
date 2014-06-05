@@ -1,0 +1,95 @@
+body{
+	background-color: 69df46;
+}
+#wrap
+{
+	width: 600px;
+	height: 500px;
+	background: #009900;
+	text-align: center;
+	margin: 40px auto auto auto;
+	border-radius: 6px;
+}
+
+#name
+{
+	color: #FFFFFF;
+	height: 100px;
+	background-color: #009900;
+	font-size: 60px;
+	font-weight: bold;
+	border-radius: 6px;
+	text-align: center;
+	
+}
+
+#rezult
+{
+	background-color: #99FF66 ;
+	height: 100px;	
+	border-radius: 6px;
+}
+
+#formochka
+{
+	background-color: #99FF66 ;
+	width: 300px;
+	height: 40px;
+	margin: auto;
+	border-radius: 0px 0px 6px 6px;
+}
+
+#minNum, #maxNum
+{
+	width: 100px;
+	height: 50px;
+	float: left;
+	background-color: #009900;
+	margin: 20px 50px 20px 50px;
+	border-radius: 6px;
+	padding: auto;
+	line-height:50px;
+	font-size: 40px;
+}
+
+#maxNum
+{
+	color: #FF3333;
+	text-align: center;
+}
+
+#minNum
+{
+	color: #99CCFF;
+	text-align: center;
+}
+#avg
+{
+	width: 100px;
+	height: 50px;
+	background-color: #009900;
+	border-radius: 6px;
+	margin: 20px 50px 20px 50px;
+	float: right;
+	color: #FFFF66;
+	text-align: center;
+	line-height:50px;
+	font-size: 40px;
+	
+	
+}
+
+.newNum
+{
+	width: 80px;
+	height: 35px;
+	float: left;
+	background-color: #99FF66;
+	margin: 20px 30px 20px 30px;
+	border-radius: 6px;
+	color: #FFFFFF;
+	font-size: 20px;
+	line-height:35px;
+	
+}
+
