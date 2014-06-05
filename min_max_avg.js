@@ -16,35 +16,32 @@ function addNumber(){
 	arrayOfDigits.push(digit);
 	
 	var max = arrayOfDigits[0];
-	for(i=1; i<arrayOfDigits.length; i++){
-		if(max<arrayOfDigits[i])
+	var min = arrayOfDigits[0];
+	var average;
+	var sum = 0;
+	for(i=0; i<arrayOfDigits.length; i++){
+		if(max<arrayOfDigits[i]){
 			max=arrayOfDigits[i];
-	}
+		}
 	var maxNumberDiv = document.getElementById("maxNum");
 	var textNodeOfmaxNumberDiv = maxNumberDiv.firstChild;
 	textNodeOfmaxNumberDiv.nodeValue = max;
-	
-	var min = arrayOfDigits[0];
-	for(i=1; i<arrayOfDigits.length; i++){
-		if(min>arrayOfDigits[i])
+		if(min>arrayOfDigits[i]){
 			min = arrayOfDigits[i];
-	}
+		}
 	var minNumberDiv = document.getElementById("minNum");
 	var textNodeOfminNumberDiv = minNumberDiv.firstChild;
 	textNodeOfminNumberDiv.nodeValue = min;
-	
-	var sum = 0;
-	for(i=0; i<arrayOfDigits.length; i++){
 	sum = sum + arrayOfDigits[i];
 	average = sum / arrayOfDigits.length;
 	if (average%1 !== 0){
 		var average = average.toFixed(1);	
-		}	
-		}
+	}
 	var avgNumberDiv = document.getElementById("avg");
 	var textNodeOfAvgNumberDiv = avgNumberDiv.firstChild;
 	textNodeOfAvgNumberDiv.nodeValue = average;
-	
+		}	
+
 	someNumber.value = "";
 }
 
