@@ -21,36 +21,34 @@ function addNumber() {
 	var sum = 0;
 	
 	for (i=0; i<arrayOfDigits.length; i++) {
-		
 		if (max<arrayOfDigits[i]) {
 			max=arrayOfDigits[i];
 		}
-		
-	var maxNumberDiv = document.getElementById("maxNum");
-	var textNodeOfmaxNumberDiv = maxNumberDiv.firstChild;
-	textNodeOfmaxNumberDiv.nodeValue = max;
 		
 		if (min>arrayOfDigits[i]) {
 			min = arrayOfDigits[i];
 		}
 		
+		sum = sum + arrayOfDigits[i];
+	}	
+	
+	average = sum / arrayOfDigits.length;
+	if (average%1 !== 0) {
+		average = average.toFixed(2);	
+	}
+		
+	var maxNumberDiv = document.getElementById("maxNum");
+	var textNodeOfmaxNumberDiv = maxNumberDiv.firstChild;
+	textNodeOfmaxNumberDiv.nodeValue = max;
+	
 	var minNumberDiv = document.getElementById("minNum");
 	var textNodeOfminNumberDiv = minNumberDiv.firstChild;
 	textNodeOfminNumberDiv.nodeValue = min;
 	
-	sum = sum + arrayOfDigits[i];
-	average = sum / arrayOfDigits.length;
-	
-		if (average%1 !== 0) {
-			average = average.toFixed(1);	
-		}
-		
 	var avgNumberDiv = document.getElementById("avg");
 	var textNodeOfAvgNumberDiv = avgNumberDiv.firstChild;
 	textNodeOfAvgNumberDiv.nodeValue = average;
 	
-	}	
-
 	someNumber.value = "";
 }
 
