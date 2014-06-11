@@ -2,55 +2,77 @@ var counter = 0;
 var arrayOfDigits = [];
 
 function addNumber() {
-	counter++;
-	var newNumDiv = document.createElement('div');
-	newNumDiv.setAttribute('class', 'newNum');
-	newNumDiv.setAttribute('id', 'block' + counter);
 	var numberInputField = document.getElementById("someNumber");
 	var inputFieldText = numberInputField.value;
 	var digitTextNode = document.createTextNode(inputFieldText);
-	newNumDiv.appendChild(digitTextNode);
-	var wrapper = document.getElementById("wrap");
-	wrapper.appendChild(newNumDiv);
-	var digit = parseInt(inputFieldText);
-	arrayOfDigits.push(digit);
+	var errorMessageDiv = document.getElementById("errorMessage");
+	errorMessageDiv.innerHTML = "";
 	
-	var max = arrayOfDigits[0];
-	var min = arrayOfDigits[0];
-	var average;
-	var sum = 0;
+	try {
+		if (isNaN(inputFieldText)) {
+		throw "Not a number";
+		} else {
+			counter++;
+			var newNumDiv = document.createElement('div');
+			newNumDiv.setAttribute('class', 'newNum');
+			newNumDiv.setAttribute('id', 'block' + counter);
+			newNumDiv.appendChild(digitTextNode);
+			var wrapper = document.getElementById("wrap");
+			wrapper.appendChild(newNumDiv);
+			var digit = parseInt(inputFieldText);
+			arrayOfDigits.push(digit);
+	//var errorNode = errorMessageDiv.firstChild;
+	//errorNode.nodeValue = ' ';
+			var max = arrayOfDigits[0];
+			var min = arrayOfDigits[0];
+			var average;
+			var sum = 0;
 	
-	for (i=0; i<arrayOfDigits.length; i++) {
-		if (max<arrayOfDigits[i]) {
-			max=arrayOfDigits[i];
-		}
+			for (i=0; i<arrayOfDigits.length; i++) {
+				
+			if (max<arrayOfDigits[i]) {
+					max=arrayOfDigits[i];
+			}
 		
-		if (min>arrayOfDigits[i]) {
-			min = arrayOfDigits[i];
-		}
+			if (min>arrayOfDigits[i]) {
+				min = arrayOfDigits[i];
+			}
 		
 		sum = sum + arrayOfDigits[i];
-	}	
+			}	
 	
-	average = sum / arrayOfDigits.length;
-	if (average%1 !== 0) {
-		average = average.toFixed(2);	
-	}
+		average = sum / arrayOfDigits.length;
 		
-	var maxNumberDiv = document.getElementById("maxNum");
-	var textNodeOfmaxNumberDiv = maxNumberDiv.firstChild;
-	textNodeOfmaxNumberDiv.nodeValue = max;
+		if (average%1 !== 0) {
+			average = average.toFixed(2);	
+		}
+		
+		var maxNumberDiv = document.getElementById("maxNum");
+		var textNodeOfmaxNumberDiv = maxNumberDiv.firstChild;
+		textNodeOfmaxNumberDiv.nodeValue = max;
 	
-	var minNumberDiv = document.getElementById("minNum");
-	var textNodeOfminNumberDiv = minNumberDiv.firstChild;
-	textNodeOfminNumberDiv.nodeValue = min;
+		var minNumberDiv = document.getElementById("minNum");
+		var textNodeOfminNumberDiv = minNumberDiv.firstChild;
+		textNodeOfminNumberDiv.nodeValue = min;
 	
-	var avgNumberDiv = document.getElementById("avg");
-	var textNodeOfAvgNumberDiv = avgNumberDiv.firstChild;
-	textNodeOfAvgNumberDiv.nodeValue = average;
+		var avgNumberDiv = document.getElementById("avg");
+		var textNodeOfAvgNumberDiv = avgNumberDiv.firstChild;
+		textNodeOfAvgNumberDiv.nodeValue = average;
 	
-	someNumber.value = "";
+		someNumber.value = "";
+		}
+		}
+		 catch(err) {
+        	errorMessageDiv.innerHTML = "Error: " + err + ".";
+   	 	} 
+	
+	
+	
 }
+
+//function show() {
+	//node = "press a number";
+//}
 
 function pressEnter(evt) {
 	var charCode = (typeof evt.which === "number") ? evt.which : evt.keyCode;

@@ -8,16 +8,19 @@
 	</head>
 	<body>
 		<div id ="wrap">
-			<div id="name">Min Max Avg</div>
+			<div id="name">
+				Min Max Avg
+			</div>
 			<div id="rezult">
-			<div id="minNum">0 </div>
-			<div id="maxNum">0</div>
-			<div id="avg"> 0</div>
+				<div id="minNum">0</div>
+				<div id="maxNum">0</div>
+				<div id="avg">0</div>
 			</div>
-				<div id="formochka">
-					<input type="text" value="" id="someNumber" onkeyup="pressEnter(event);">
-			<input type="button" id="addNum" value ="Add" onclick="addNumber();">
+			<div id="formochka">
+				<input type="text" value="" id="someNumber" onkeyup="pressEnter(event);" autofocus="true">
+				<input type="button" id="addNum" value ="Add" onclick="addNumber();">
+				<div id="errorMessage">&nbsp;</div>
 			</div>
-		</div>	
+		</div>
 	</body>
 </html>
