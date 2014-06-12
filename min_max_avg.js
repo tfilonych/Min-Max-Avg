@@ -51,9 +51,9 @@ function addNumber() {
 	
 	average = sum / arrayOfDigits.length;
 		
-		if (average%1 !== 0) {
-			average = average.toFixed(2);	
-		}
+	if (average%1 !== 0) {
+		average = average.toFixed(2);	
+	}
 		
 	var maxNumberDiv = document.getElementById("maxNum");
 	var textNodeOfmaxNumberDiv = maxNumberDiv.firstChild;
@@ -67,7 +67,7 @@ function addNumber() {
 	var textNodeOfAvgNumberDiv = avgNumberDiv.firstChild;
 	textNodeOfAvgNumberDiv.nodeValue = average;
 	
-	someNumber.value = "";
+	numberInputField.value = "";
 		
 }
 
