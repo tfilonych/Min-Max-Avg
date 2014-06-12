@@ -11,12 +11,15 @@ function addNumber() {
 	try {
 		if (isNaN(inputFieldText)) 
 			throw "Not a number";
-		}
-	 catch(err) {
+		if (inputFieldText < 100)
+			throw "should be more than 100";
+		if (inputFieldText > 1000)
+			throw "should be less than 1000";
+	} catch(err) {
         	errorMessageDiv.innerHTML = "Error: " + err + ".";
         	numberInputField.value = "";
         	return;
-   	 	} 		
+   	 } 		
    	 	
    	counter++;
 	var newNumDiv = document.createElement('div');
@@ -27,51 +30,46 @@ function addNumber() {
 	wrapper.appendChild(newNumDiv);
 	var digit = parseInt(inputFieldText);
 	arrayOfDigits.push(digit);
-			//var errorNode = errorMessageDiv.firstChild;
-			//errorNode.nodeValue = ' ';
-	var max = arrayOfDigits[0];
-			var min = arrayOfDigits[0];
-			var average;
-			var sum = 0;
 	
-			for (i=0; i<arrayOfDigits.length; i++) {
+	var max = arrayOfDigits[0];
+	var min = arrayOfDigits[0];
+	var average;
+	var sum = 0;
+	
+	for (i=0; i<arrayOfDigits.length; i++) {
 				
-			if (max<arrayOfDigits[i]) {
-					max=arrayOfDigits[i];
-			}
+		if (max<arrayOfDigits[i]) {
+			max=arrayOfDigits[i];
+		}
 		
-			if (min>arrayOfDigits[i]) {
-				min = arrayOfDigits[i];
-			}
+		if (min>arrayOfDigits[i]) {
+			min = arrayOfDigits[i];
+		}
 		
 		sum = sum + arrayOfDigits[i];
-			}	
+	}	
 	
-		average = sum / arrayOfDigits.length;
+	average = sum / arrayOfDigits.length;
 		
 		if (average%1 !== 0) {
 			average = average.toFixed(2);	
 		}
 		
-		var maxNumberDiv = document.getElementById("maxNum");
-		var textNodeOfmaxNumberDiv = maxNumberDiv.firstChild;
-		textNodeOfmaxNumberDiv.nodeValue = max;
+	var maxNumberDiv = document.getElementById("maxNum");
+	var textNodeOfmaxNumberDiv = maxNumberDiv.firstChild;
+	textNodeOfmaxNumberDiv.nodeValue = max;
 	
-		var minNumberDiv = document.getElementById("minNum");
-		var textNodeOfminNumberDiv = minNumberDiv.firstChild;
-		textNodeOfminNumberDiv.nodeValue = min;
+	var minNumberDiv = document.getElementById("minNum");
+	var textNodeOfminNumberDiv = minNumberDiv.firstChild;
+	textNodeOfminNumberDiv.nodeValue = min;
 	
-		var avgNumberDiv = document.getElementById("avg");
-		var textNodeOfAvgNumberDiv = avgNumberDiv.firstChild;
-		textNodeOfAvgNumberDiv.nodeValue = average;
+	var avgNumberDiv = document.getElementById("avg");
+	var textNodeOfAvgNumberDiv = avgNumberDiv.firstChild;
+	textNodeOfAvgNumberDiv.nodeValue = average;
 	
-		someNumber.value = "";
+	someNumber.value = "";
 		
 }
-
-//function show() {
-	//node = "press a number";
-//}
 
 function pressEnter(evt) {
 	var charCode = (typeof evt.which === "number") ? evt.which : evt.keyCode;
