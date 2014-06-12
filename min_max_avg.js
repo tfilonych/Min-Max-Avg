@@ -9,21 +9,27 @@ function addNumber() {
 	errorMessageDiv.innerHTML = "";
 	
 	try {
-		if (isNaN(inputFieldText)) {
-		throw "Not a number";
-		} else {
-			counter++;
-			var newNumDiv = document.createElement('div');
-			newNumDiv.setAttribute('class', 'newNum');
-			newNumDiv.setAttribute('id', 'block' + counter);
-			newNumDiv.appendChild(digitTextNode);
-			var wrapper = document.getElementById("wrap");
-			wrapper.appendChild(newNumDiv);
-			var digit = parseInt(inputFieldText);
-			arrayOfDigits.push(digit);
-	//var errorNode = errorMessageDiv.firstChild;
-	//errorNode.nodeValue = ' ';
-			var max = arrayOfDigits[0];
+		if (isNaN(inputFieldText)) 
+			throw "Not a number";
+		}
+	 catch(err) {
+        	errorMessageDiv.innerHTML = "Error: " + err + ".";
+        	numberInputField.value = "";
+        	return;
+   	 	} 		
+   	 	
+   	counter++;
+	var newNumDiv = document.createElement('div');
+	newNumDiv.setAttribute('class', 'newNum');
+	newNumDiv.setAttribute('id', 'block' + counter);
+	newNumDiv.appendChild(digitTextNode);
+	var wrapper = document.getElementById("wrap");
+	wrapper.appendChild(newNumDiv);
+	var digit = parseInt(inputFieldText);
+	arrayOfDigits.push(digit);
+			//var errorNode = errorMessageDiv.firstChild;
+			//errorNode.nodeValue = ' ';
+	var max = arrayOfDigits[0];
 			var min = arrayOfDigits[0];
 			var average;
 			var sum = 0;
@@ -60,14 +66,7 @@ function addNumber() {
 		textNodeOfAvgNumberDiv.nodeValue = average;
 	
 		someNumber.value = "";
-		}
-		}
-		 catch(err) {
-        	errorMessageDiv.innerHTML = "Error: " + err + ".";
-   	 	} 
-	
-	
-	
+		
 }
 
 //function show() {
