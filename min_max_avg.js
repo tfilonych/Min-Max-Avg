@@ -30,45 +30,52 @@ function addNumber() {
 	wrapper.appendChild(newNumDiv);
 	var digit = parseInt(inputFieldText);
 	arrayOfDigits.push(digit);
+		
+	var maxNumberDiv = document.getElementById("maxNum");
+	maxNumberDiv.innerHTML = find_max_number(arrayOfDigits);
 	
+	var minNumberDiv = document.getElementById("minNum");
+	minNumberDiv.innerHTML = find_min_number(arrayOfDigits);
+	
+	var avgNumberDiv = document.getElementById("avg");
+	avgNumberDiv.innerHTML = calculate_average_number(arrayOfDigits);
+	
+	numberInputField.value = "";	
+}
+
+function find_max_number(arr) {
 	var max = arrayOfDigits[0];
-	var min = arrayOfDigits[0];
-	var average;
-	var sum = 0;
-	
-	for (i=0; i<arrayOfDigits.length; i++) {
-				
+	for (i=0; i<arrayOfDigits.length; i++) {	
 		if (max<arrayOfDigits[i]) {
 			max=arrayOfDigits[i];
 		}
-		
+	}
+	return max;
+}
+
+function find_min_number(arr) {
+	var min = arrayOfDigits[0];
+	for (i=0; i<arrayOfDigits.length; i++) {
 		if (min>arrayOfDigits[i]) {
 			min = arrayOfDigits[i];
 		}
-		
-		sum = sum + arrayOfDigits[i];
+	
 	}	
-	
-	average = sum / arrayOfDigits.length;
+	return min;
+}
+
+function calculate_average_number(arr) {
+	var average;
+	var sum = 0;
+	for (i=0; i<arrayOfDigits.length; i++) {
+		sum = sum + arrayOfDigits[i];
+		average = sum / arrayOfDigits.length;
 		
-	if (average%1 !== 0) {
-		average = average.toFixed(2);	
+		if (average%1 !== 0) {
+			average = average.toFixed(2);	
+		}
 	}
-		
-	var maxNumberDiv = document.getElementById("maxNum");
-	var textNodeOfmaxNumberDiv = maxNumberDiv.firstChild;
-	textNodeOfmaxNumberDiv.nodeValue = max;
-	
-	var minNumberDiv = document.getElementById("minNum");
-	var textNodeOfminNumberDiv = minNumberDiv.firstChild;
-	textNodeOfminNumberDiv.nodeValue = min;
-	
-	var avgNumberDiv = document.getElementById("avg");
-	var textNodeOfAvgNumberDiv = avgNumberDiv.firstChild;
-	textNodeOfAvgNumberDiv.nodeValue = average;
-	
-	numberInputField.value = "";
-		
+	return average;
 }
 
 function pressEnter(evt) {
